@@ -35,4 +35,112 @@ const amenitiesList = [
     {name:"Fire Fighting Equipment", url:"https://res.cloudinary.com/di01osmzz/image/upload/v1681982226/firefighting_or9fh7.png"},
   ];
 
-  export {amenitiesList};
+const propDetails = [
+    { type:"2 BHK",
+      super_area: "1276 Sq.Ft",
+      price:"1.3 Cr* Onwords"
+    },
+    { type:"3 BHK",
+      super_area: "1876 Sq.Ft",
+      price:"3 Cr* Onwords"
+    },
+    { type:"2.5 BHK",
+      super_area: "1266 Sq.Ft",
+      price:"3.2 Cr* Onwords"
+    },
+    { type:"4 BHK",
+      super_area: "1366 Sq.Ft",
+      price:"4 Cr* Onwords"
+    },
+    { type:"4.5 BHK",
+      super_area: "1360 Sq.Ft",
+      price:"4.2 Cr* Onwords"
+    },
+];
+
+const imagesData = [
+    "https://ik.imagekit.io/flashaway/thumb_large_61bf0818-3497-4c2d-b45b-4b1223964805.jpg",
+    "https://mediacdn.99acres.com/media1/20954/4/419084678T-1682062178266.jpg",
+    "https://mediacdn.99acres.com/media1/20166/17/403337696M-1674412647056.jpg",
+    "https://is1-2.housingcdn.com/01c16c28/a34012546173219a769fd88bbb27cc9d/v0/medium/2_bhk_apartment-for-sale-dhanwantary_nagar-Jabalpur-others.jpg",
+    "https://newprojects.99acres.com/projects/sri_anantha_developers/sri_anantha_sri_kamakshi_residency/images/57f299v2.jpg",
+    "https://newprojects.99acres.com/projects/e_team_projects/e_irene/images/p7ww67hm.jpg",
+    "https://propertyadviser.in/property-images/s1/eternal-group-2558-s1.jpg",
+    "https://res.cloudinary.com/di01osmzz/image/upload/v1675775763/B85_B90___Building_Bloc_design_dragpq.jpg",
+    "https://res.cloudinary.com/di01osmzz/image/upload/v1675775775/Gallery_of_Iron_Maiden_House_by_CplusC_Architectural_Workshop___TLP_aaf0bi.jpg",
+];
+
+const localitiesData = [
+    "Kundanahalli Signel",
+    "Outer Ring Road",
+    "International School",
+    "JS Nagar",
+    "RK Road",
+    "Market Road",
+    "Marthahalli Road",
+    "vartur Kodi"
+]
+
+const propertiesImages = [
+    "https://thumbs.dreamstime.com/z/modern-real-estate-house-building-city-construction-concept-evening-outdoor-urban-view-homes-40083842.jpg",
+    "https://res.cloudinary.com/di01osmzz/image/upload/v1675775784/Fence_House_maison_contemporaine_%C3%A0_Pozna%C5%84_en_Pologne_par_mode_lina_-_Journal_du_Design_oizqrk.jpg",
+    "https://res.cloudinary.com/di01osmzz/image/upload/v1675775775/Gallery_of_Iron_Maiden_House_by_CplusC_Architectural_Workshop___TLP_aaf0bi.jpg",
+    "https://res.cloudinary.com/di01osmzz/image/upload/v1675775763/B85_B90___Building_Bloc_design_dragpq.jpg",
+];
+
+const specificationsData = [
+    {
+        heading:"Structure -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+    {
+        heading:"Car Parking -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+    {
+        heading:"Living/Dining/Kitchen -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+    {
+        heading:"Electrical & Power Backup -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+    {
+        heading:"Bedrooms -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+    {
+        heading:"Toilets -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+    {
+        heading:"Balconies/Utilities -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+    {
+        heading:"Staircase -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+    {
+        heading:"Common Areas -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+    {
+        heading:"Joinery -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+    {
+        heading:"lifts -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+    {
+        heading:"Land Scapes -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+    {
+        heading:"Common Facilities -",
+        content:" Basement +Ground+13 Storied R C C Structure"
+    },
+];
+
+  export {amenitiesList, propDetails, imagesData, localitiesData, propertiesImages, specificationsData};

@@ -53,7 +53,7 @@ const FaqsPage = ()=> {
                 {faqData.map((each,ind)=>{
                     return(
                         <div className="QABox" key={ind}>
-                            <div id={ind} className="space-between-order"  onClick={()=>onQuesClick(ind)}>
+                            <div id={ind} className="space-between-order" onClick={()=>onQuesClick(ind)}>
                                 <div>
                                     <p className="question">{each.qusetion}</p>
                                     <span id={`answer${ind}`} style={{display: "none"}} className="answer">{each.answer}</span>

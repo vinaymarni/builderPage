@@ -29,7 +29,7 @@ const Photos = ({onPhotos}) => {
     };
     return(
         <div className="notification-con ver-order">
-            <i id="photos-cross-icon" className="fa fa-close" style={{fontSize:"40px" }} onClick={()=>onPhotos()}></i>     
+            <i id="photos-cross-icon" className="fa fa-close" onClick={()=>onPhotos()}></i>     
             <div className="ver-order main-photos-con">  
                 <Loader size="md" content="Loading..."  style={{display: loading ? "block" : "none", margin: "10%"}}/>      
                 <div className="images-con ver-order" style={{display: loading ? "none" : "block"}}>
@@ -37,8 +37,8 @@ const Photos = ({onPhotos}) => {
                         {
                             imagesData.map((each, ind)=>{
                                 return(
-                                    <div style={{height:"70vh", width:"100%", marginTop:"30px"}}>
-                                        <img key={ind} alt="" className="propertyImages" src={each}  onLoad={imageLoaded} />    
+                                    <div key={ind} className="gallery-con">
+                                        <img alt="" className="propertyImages" src={each}  onLoad={imageLoaded} />    
                                     </div>           
                                 )
                             })

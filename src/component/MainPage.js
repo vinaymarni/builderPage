@@ -1,65 +1,11 @@
 import React, { useState } from "react";
 import '../App.css'
-import {amenitiesList} from '../component/commonData';
+import {amenitiesList, propDetails, imagesData, localitiesData, propertiesImages, specificationsData} from '../component/commonData';
 import FaqsPage from '../component/FaqsPage';
-
-const propDetails = [
-    { type:"2 BHK",
-      super_area: "1276 Sq.Ft",
-      price:"1.3 Cr* Onwords"
-    },
-    { type:"3 BHK",
-      super_area: "1876 Sq.Ft",
-      price:"3 Cr* Onwords"
-    },
-    { type:"2.5 BHK",
-      super_area: "1266 Sq.Ft",
-      price:"3.2 Cr* Onwords"
-    },
-    { type:"4 BHK",
-      super_area: "1366 Sq.Ft",
-      price:"4 Cr* Onwords"
-    },
-    { type:"4.5 BHK",
-      super_area: "1360 Sq.Ft",
-      price:"4.2 Cr* Onwords"
-    },
-];
-
-const imagesData = [
-    "https://ik.imagekit.io/flashaway/thumb_large_61bf0818-3497-4c2d-b45b-4b1223964805.jpg",
-    "https://mediacdn.99acres.com/media1/20954/4/419084678T-1682062178266.jpg",
-    "https://mediacdn.99acres.com/media1/20166/17/403337696M-1674412647056.jpg",
-    "https://is1-2.housingcdn.com/01c16c28/a34012546173219a769fd88bbb27cc9d/v0/medium/2_bhk_apartment-for-sale-dhanwantary_nagar-Jabalpur-others.jpg",
-    "https://newprojects.99acres.com/projects/sri_anantha_developers/sri_anantha_sri_kamakshi_residency/images/57f299v2.jpg",
-    "https://newprojects.99acres.com/projects/e_team_projects/e_irene/images/p7ww67hm.jpg",
-    "https://propertyadviser.in/property-images/s1/eternal-group-2558-s1.jpg",
-    "https://res.cloudinary.com/di01osmzz/image/upload/v1675775763/B85_B90___Building_Bloc_design_dragpq.jpg",
-    "https://res.cloudinary.com/di01osmzz/image/upload/v1675775775/Gallery_of_Iron_Maiden_House_by_CplusC_Architectural_Workshop___TLP_aaf0bi.jpg",
-];
-
-const localitiesData = [
-    "Kundanahalli Signel",
-    "Outer Ring Road",
-    "International School",
-    "JS Nagar",
-    "RK Road",
-    "Market Road",
-    "Marthahalli Road",
-    "vartur Kodi"
-]
-
-const propertiesImages = [
-    "https://thumbs.dreamstime.com/z/modern-real-estate-house-building-city-construction-concept-evening-outdoor-urban-view-homes-40083842.jpg",
-    "https://res.cloudinary.com/di01osmzz/image/upload/v1675775784/Fence_House_maison_contemporaine_%C3%A0_Pozna%C5%84_en_Pologne_par_mode_lina_-_Journal_du_Design_oizqrk.jpg",
-    "https://res.cloudinary.com/di01osmzz/image/upload/v1675775775/Gallery_of_Iron_Maiden_House_by_CplusC_Architectural_Workshop___TLP_aaf0bi.jpg",
-    "https://res.cloudinary.com/di01osmzz/image/upload/v1675775763/B85_B90___Building_Bloc_design_dragpq.jpg",
-];
 
 let isMenu = false
 
 const MainPage = ({onBrochur, onEnquire, onPhotos}) => {
-    const [boxes, setBoxes] = useState({box1:"flex", box2:"none", box3:"none", box4:"none"});
     const [location, setLocation] = useState({mapBox:"flex", locationBox:"none"})
     const [menuBar, setMenuBar] = useState("none")
 
@@ -73,11 +19,18 @@ const MainPage = ({onBrochur, onEnquire, onPhotos}) => {
                 break
         };
     };
-
     const onMenu = ()=>{
         isMenu = !isMenu;
         isMenu ? setMenuBar("flex") : setMenuBar("none");
-    }
+    };
+    const onToggleB = ()=>{
+        onMenu();
+        onBrochur();
+    };
+    const onToggleE = ()=>{
+        onMenu();
+        onEnquire();
+    };
 
     return(
         <div className="mainbar-main-con flex-start-order fixed-left">
@@ -88,9 +41,9 @@ const MainPage = ({onBrochur, onEnquire, onPhotos}) => {
                 </div>
                 <hr className="vl" />
                 <a href="#home">
-                        <div className="nav-items">
-                            <i id="nav-icon" className="fa fa-home"></i>
-                        </div>
+                    <div className="nav-items">
+                        <i id="nav-icon" className="fa fa-home"></i>
+                    </div>
                 </a>
                 <hr className="vl" />
                 <a href="#over_view">
@@ -145,17 +98,16 @@ const MainPage = ({onBrochur, onEnquire, onPhotos}) => {
                             <img src="https://res.cloudinary.com/di01osmzz/image/upload/v1683185255/question-mark-draw_xzqlx4.png" alt="" height={13} width={13} />
                             <span style={{marginLeft:"5px"}}>FAQs</span>                    
                         </div>
-                </a>
-                
+                </a>                
                 <hr className="vl" />
                 <div className="nav-items hor-order" onClick={()=>onBrochur()}>
-                        <i class="fa fa-download" style={{fontSize:"13px"}}></i>
-                        <span style={{marginLeft:"5px"}}>Brochure</span>
+                    <i className="fa fa-download" style={{fontSize:"13px"}}></i>
+                    <span style={{marginLeft:"5px"}}>Brochure</span>
                 </div>
                 <hr className="vl" />
                 <div className="nav-items hor-order" onClick={()=>onEnquire()}>
-                        <i className="fa fa-envelope" style={{fontSize: "13px"}}></i>
-                        <span style={{marginLeft:"5px"}}>Enquire</span>
+                    <i className="fa fa-envelope" style={{fontSize: "13px"}}></i>
+                    <span style={{marginLeft:"5px"}}>Enquire</span>
                 </div>
             </nav>
 {/* For Mobile */}
@@ -217,11 +169,11 @@ const MainPage = ({onBrochur, onEnquire, onPhotos}) => {
                             <span style={{marginLeft:"5px"}}>FAQs</span>                    
                         </div>
                     </a>                   
-                    <div className="nav-items hor-order" onClick={()=>onBrochur()}>
-                        <i class="fa fa-download" style={{fontSize:"13px"}}></i>
+                    <div className="nav-items hor-order" onClick={onToggleB}>
+                        <i className="fa fa-download" style={{fontSize:"13px"}}></i>
                         <span style={{marginLeft:"5px"}}>Brochure</span>
                     </div>
-                    <div className="nav-items hor-order" onClick={()=>onEnquire()}>
+                    <div className="nav-items hor-order" onClick={onToggleE}>
                         <i className="fa fa-envelope" style={{fontSize: "13px"}}></i>
                         <span style={{marginLeft:"5px"}}>Enquire</span>
                     </div>
@@ -240,11 +192,11 @@ const MainPage = ({onBrochur, onEnquire, onPhotos}) => {
                         return(
                             ind === 0 ?                 
                             <div key={ind} className="carousel-item active">
-                                <img src={eachPhoto} style={{width:"74.5vw", height:"650px", marginTop:"60px"}} className="property-images" alt="..."/>
+                                <img src={eachPhoto} id="property-images" alt="..."/>
                             </div>
                             :
                             <div key={ind} className="carousel-item">
-                                <img src={eachPhoto} style={{width:"74.5vw", height:"650px", marginTop:"60px"}} className="property-images" alt="..."/>  
+                                <img src={eachPhoto} id="property-images" alt="..."/>  
                             </div>  
                                                                
                         )
@@ -275,7 +227,6 @@ const MainPage = ({onBrochur, onEnquire, onPhotos}) => {
                 <div className="alert-msg hor-order alert-style-bottom">Exciting Payment Plans</div>
                 <span className="more-details-heading" style={{fontSize:"20px"}}>Luxurious 2.5, 3, 3.5, 4 & 4.5 BHK</span>
                 <span className="more-details-heading" style={{fontSize:"20px", marginTop:"0px"}}>Starting Price</span>
-
                 <h1 className="more-details-heading" style={{marginTop:"0px", fontSize:"20px"}}> 1.65 Cr* Onwards</h1>
                 <button className="call-btn" style={{marginTop:"0px"}}>Enquire Now</button>
             </div>          
@@ -333,87 +284,23 @@ const MainPage = ({onBrochur, onEnquire, onPhotos}) => {
                     <h1 className="mobile-sobha-heading">Specifications</h1>
                     <h2 className="bhk-unit-heading">*For 2 BHK units Only</h2>
                     <div className="bhk-unit-content-box">
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Structure -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Car Parking -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Living/Dining/Kitchen -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Electrical & Power Backup -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Bedrooms -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Toilets -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Balconies/Utilities -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Staircase -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Common Areas -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Joinery -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">lifts -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Land Scape -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Common Facilities -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>                   
+                        {specificationsData.map((each, ind)=>{
+                            return(
+                                <div key={ind} className="bhk-unit-each-box">
+                                    <p className="bhk-unit-para"><span className="bhk-unit-span">Structure -</span> Basement +Ground+13 Storied R C C Structure</p>
+                                </div>
+                            )
+                        })}                      
                     </div>
                     <h2 className="bhk-unit-heading" style={{marginTop:"25px"}}>*For 1 BHK units Only</h2>
                     <div className="bhk-unit-content-box">
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Structure -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Car Parking -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Living/Dining/Kitchen -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Electrical & Power Backup -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Bedrooms -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Toilets -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Balconies/Utilities -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Staircase -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Common Areas -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Joinery -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">lifts -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Land Scape -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>
-                        <div className="bhk-unit-each-box">
-                            <p className="bhk-unit-para"><span className="bhk-unit-span">Common Facilities -</span> Basement +Ground+13 Storied R C C Structure</p>
-                        </div>                   
+                        {specificationsData.map((each, ind)=>{
+                            return(
+                                <div key={ind} className="bhk-unit-each-box">
+                                    <p className="bhk-unit-para"><span className="bhk-unit-span">Structure -</span> Basement +Ground+13 Storied R C C Structure</p>
+                                </div>
+                            )
+                        })}           
                     </div>
                 </div>
                 <div id="amenities" className="details-con">
@@ -482,7 +369,13 @@ const MainPage = ({onBrochur, onEnquire, onPhotos}) => {
                     <span style={{fontSize:"12px", color:"blue"}}>Disclaimer & Privacy Policy</span>
                 </div>
             </div>
-
+            <div className="space-between-order bottom-btns-con fixed-bottom">
+                <button className="bottom-btn hor-order"><i className="fa fa-phone" style={{color: "white", fontSize:"20px", marginRight:"7px"}}></i>Call</button>
+                <button className="bottom-btn middle-btn hor-order" onClick={onEnquire}><i className="fa fa-envelope" style={{fontSize: "17px", marginRight:"7px"}}></i>Enquire</button>
+                <a href="whatsapp://send?abid=7702249962&text=Hello%2C%20World!">
+                    <button className="bottom-btn hor-order"><i className="fa fa-whatsapp" style={{color: "white", fontSize:"20px", marginRight:"7px"}}></i>whatsapp</button>
+                </a>
+            </div>
             
         </div>
     )
