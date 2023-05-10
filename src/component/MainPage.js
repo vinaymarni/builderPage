@@ -5,13 +5,19 @@ import { propDetails, localitiesData, propertiesImages, specificationsData, newA
 import FaqsPage from '../component/FaqsPage';
 import Enquire from '../component/Enquire';
 
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+
 let isMenu = false;
 
-const MainPage = ({ onPhotos}) => {
+const MainPage = ({onPhotos}) => {
     const [location, setLocation] = useState({mapBox:"flex", locationBox:"none"})
     const [menuBar, setMenuBar] = useState("none");
     const [contant, setContant] = useState({heading:"", button:""});
     const [enquireBox, setEnquireBox] = useState("none");
+    const [value, setValue] = useState();
+    const [viewImg, setViewImg] = useState("none");
+    const [viewLocationImg, setViewLocationImg] = useState("none");
 
     const onBoxesClick = (name) => {
         switch(name){
@@ -34,7 +40,6 @@ const MainPage = ({ onPhotos}) => {
         setEnquireBox("flex");
     };
 
-
     const onLocationSelect = ( name ) => {
         switch(name){
             case "M":
@@ -49,6 +54,17 @@ const MainPage = ({ onPhotos}) => {
         isMenu = !isMenu;
         isMenu ? setMenuBar("flex") : setMenuBar("none");
     };
+    const onZoomImgCon = (e)=>{
+        if (e.target.id === "OK"){
+            setViewImg("none")
+        };
+    };
+    const onZoomLocationImgCon = (e)=>{
+        if (e.target.id === "OK"){
+            setViewLocationImg("none")
+        };
+    };
+
     const onToggleB = ()=>{
         onMenu();
         onBoxesClick("B");
@@ -59,9 +75,19 @@ const MainPage = ({ onPhotos}) => {
     };
 
     return(
-        <div className="mainbar-main-con flex-start-order fixed-left">
+        <div className="mainbar-main-con flex-start-order">
 {/* For Desktop */}
             <nav className="nav-bar fixed-top space-between-order">
+                <div id="OK" style={{display: viewImg}} className="notification-con image-viewer ver-order fixed-top" onClick={(e)=>onZoomImgCon(e)}>
+                    <i id="photos-cross-icon" className="fa fa-close" onClick={()=>setViewImg("none")}></i>
+                    <img id="NO" src="https://res.cloudinary.com/di01osmzz/image/upload/v1683544544/Masterplan_terpqh.jpg" alt="" className="master-plan zoom-img" onClick={(e)=>onZoomImgCon(e)} />
+                </div>
+
+                <div id="OK" style={{display: viewLocationImg}} className="notification-con image-viewer ver-order fixed-top" onClick={(e)=>onZoomLocationImgCon(e)}>
+                    <i id="photos-cross-icon" className="fa fa-close" onClick={()=>setViewLocationImg("none")}></i>
+                    <img id="NO" src="https://res.cloudinary.com/di01osmzz/image/upload/v1683544544/Location_Map_pzqnh3.jpg" alt="" className="master-plan zoom-img" onClick={(e)=>onZoomLocationImgCon(e)} />
+                </div>
+
                 <div id="notificationCon" className="fixed-top" style={{display: enquireBox}}>
                     <Enquire setEnquireBox={setEnquireBox} contant={contant} />
                 </div>
@@ -116,12 +142,14 @@ const MainPage = ({ onPhotos}) => {
                             <span style={{marginLeft:"5px"}}>Virtual Site Tour</span>                    
                         </div>
                 </a>
+                <hr className="vl" />
                 <a href="#about">
                         <div className="nav-items hor-order">
                             <img src="https://res.cloudinary.com/di01osmzz/image/upload/v1683185255/about_rfsk1k.png" alt="" height={13} width={13} />
                             <span style={{marginLeft:"5px"}}>About</span>                    
                         </div>
                 </a>
+                <hr className="vl" />
                 <a href="#FAQs">
                         <div className="nav-items hor-order">
                             <img src="https://res.cloudinary.com/di01osmzz/image/upload/v1683185255/question-mark-draw_xzqlx4.png" alt="" height={13} width={13} />
@@ -141,6 +169,16 @@ const MainPage = ({ onPhotos}) => {
             </nav>
 {/* For Mobile */}
             <nav className="mobile-nav-bar fixed-top space-between-order">
+                <div id="OK" style={{display: viewImg}} className="notification-con image-viewer ver-order fixed-top" onClick={(e)=>onZoomImgCon(e)}>
+                    <i id="photos-cross-icon" className="fa fa-close" onClick={()=>setViewImg("none")}></i>
+                    <img id="NO" src="https://res.cloudinary.com/di01osmzz/image/upload/v1683544544/Masterplan_terpqh.jpg" alt="" className="master-plan zoom-img" onClick={(e)=>onZoomImgCon(e)} />
+                </div>
+
+                <div id="OK" style={{display: viewLocationImg}} className="notification-con image-viewer ver-order fixed-top" onClick={(e)=>onZoomLocationImgCon(e)}>
+                    <i id="photos-cross-icon" className="fa fa-close" onClick={()=>setViewLocationImg("none")}></i>
+                    <img id="NO" src="https://res.cloudinary.com/di01osmzz/image/upload/v1683544544/Location_Map_pzqnh3.jpg" alt="" className="master-plan zoom-img" onClick={(e)=>onZoomLocationImgCon(e)} />
+                </div>
+
                 <div id="notificationCon" className="fixed-top" style={{display: enquireBox}}>
                     <Enquire setEnquireBox={setEnquireBox} contant={contant} />
                 </div>
@@ -244,9 +282,9 @@ const MainPage = ({ onPhotos}) => {
                 </div> 
             </div>
             <div className="more-details-box ver-order">
-                <h2 className="more-details-heading">SIGNATURE TOWERS</h2>
-                <h3 className="more-details-content">At Borewell Rd. Whitefield</h3>
-                <p className="more-details-content" style={{fontSize:"12px"}}>By SOBHA DREAMS</p>
+                <span className="more-details-heading" style={{marginBottom:"10px"}}>SIGNATURE TOWERS</span>
+                <span className="more-details-content">At Borewell Rd. Whitefield</span>
+                <p className="more-details-content" style={{fontSize:"13px"}}>By SOBHA DREAMS</p>
                 <div className="more-detail-inner ver-order">
                     <span className="ul-items">Land Parcel : <span> 17 Acres</span></span>
                     <span className="ul-items">Floors : <span> G+19 Storeys</span></span>
@@ -257,10 +295,24 @@ const MainPage = ({ onPhotos}) => {
                 <div className="alert-msg hor-order">*100% Vastu Homes</div>
                 <div className="alert-msg hor-order alert-style-bottom">Exciting Payment Plans</div>
                 <span className="more-details-heading" style={{fontSize:"20px"}}>Luxurious 2.5, 3, 3.5, 4 & 4.5 BHK</span>
-                <span className="more-details-heading" style={{fontSize:"20px", marginTop:"0px"}}>Starting Price</span>
-                <h1 className="more-details-heading" style={{marginTop:"0px", fontSize:"20px"}}> 1.65 Cr* Onwards</h1>
-                <button className="call-btn" style={{marginTop:"0px"}} onClick={()=>onBoxesClick("E")}>Enquire Now</button>
-            </div>          
+                <span className="more-details-heading" style={{fontSize:"20px"}}>Starting Price</span>
+                <span className="more-details-heading" style={{ fontSize:"20px"}}> 1.65 Cr* Onwards</span>
+                <button className="call-btn ver-order" onClick={()=>onBoxesClick("E")}>Enquire Now</button>
+            </div>   
+            <div className="ver-order mobile-pre-regidtration">
+                <h2 className="Pre-Rigester-heading">Pre-Rigester Here For Best Offers</h2>
+                <input type="text" placeholder="Name" className="input-field" style={{border:"none"}} />
+                <PhoneInput 
+                    international
+                    countryCallingCodeEditable={false}
+                    defaultCountry="IN"
+                    value={value}
+                    onChange={setValue}
+                    className="input-field brochure-field"
+                    style={{width:"80%", border:"none"}}
+                />
+                <input type="text" placeholder="E mail Id" className="input-field" style={{border:"none"}} />
+                <button className="call-btn hor-order" style={{marginTop:"20px"}}>Pre Rigester Now</button></div>       
             <div>
                 <div id="over_view" className="details-con">
                     <h1 className="sobha-heading">Overview</h1>
@@ -339,7 +391,7 @@ const MainPage = ({ onPhotos}) => {
                             {newAmenitiesData.map((each, ind)=>{
                                 return(
                                     <div>
-                                        <h3>{each.heading}</h3>
+                                        <h3 className="">{each.heading}</h3>
                                         <div className="gallery-order">
                                             {each.amenities.map((eachOne, ind)=>{
                                                 return(
@@ -366,10 +418,8 @@ const MainPage = ({ onPhotos}) => {
                 <div id="master_plan" className="details-con">
                     <h1 className="sobha-heading">Master Plan</h1>
                     <h1 className="mobile-sobha-heading">Master Plan</h1>
-                    <div className="ver-order">
-                        <a href="https://res.cloudinary.com/di01osmzz/image/upload/v1683544544/Masterplan_terpqh.jpg" target="_self">
-                            <img id="masterplanImg" src="https://res.cloudinary.com/di01osmzz/image/upload/v1683544544/Masterplan_terpqh.jpg" alt="" className="master-plan" />
-                        </a>
+                    <div className="ver-order" onClick={()=>setViewImg("flex")}>
+                       <img id="masterplanImg" src="https://res.cloudinary.com/di01osmzz/image/upload/v1683544544/Masterplan_terpqh.jpg" alt="" className="master-plan" />  
                     </div> 
                 </div>
                 <div id="location" className="details-con">
@@ -384,12 +434,10 @@ const MainPage = ({ onPhotos}) => {
                             <img src="https://www.shutterstock.com/image-vector/city-map-any-kind-digital-260nw-2021574014.jpg" alt="" className="map-box" />                           
                         </div>
                     </div>
-                    <div className="ver-order location-image" style={{display: location.locationBox, marginTop:"20px"}}>
-                        <a href="https://thumb.cadbull.com/img/product_img/original/urban_area_street_map_and_planning_cad_drawing_details_dwg_file_29052019051302.png" target="_self">
-                            <img src="https://res.cloudinary.com/di01osmzz/image/upload/v1683544544/Location_Map_pzqnh3.jpg" alt="" className="map-box" />
-                        </a>
+                    <div className="ver-order location-image" style={{display: location.locationBox, marginTop:"20px"}} onClick={()=>setViewLocationImg("flex")}>
+                        <img src="https://res.cloudinary.com/di01osmzz/image/upload/v1683544544/Location_Map_pzqnh3.jpg" alt="" className="map-box" />   
                     </div>
-                    <div className="new-order localities-box" style={{marginLeft:"20px", marginTop:"20px"}}>
+                    <div className="new-order localities-box" style={{marginTop:"20px"}}>
                         {localitiesData.map((each, ind)=>{
                             return(
                                 <div className="hor-order localities-con">
@@ -430,9 +478,11 @@ const MainPage = ({ onPhotos}) => {
                 </div>
             </div>
             <div className="space-between-order bottom-btns-con fixed-bottom">
-                <button className="bottom-btn hor-order"><i className="fa fa-phone" style={{color: "white", fontSize:"20px", marginRight:"7px"}}></i>Call</button>
+                <a href="tel:9785061492" style={{width:"100%"}}>
+                    <button className="bottom-btn hor-order"><i className="fa fa-phone" style={{color: "white", fontSize:"20px", marginRight:"7px"}}></i>Call</button>
+                </a>
                 <button className="bottom-btn middle-btn hor-order" onClick={()=>onBoxesClick("E")}><i className="fa fa-envelope" style={{fontSize: "17px", marginRight:"7px"}}></i>Enquire</button>
-                <button className="bottom-btn hor-order"><a href="https://api.whatsapp.com/send?phone=+919785061492"><i className="fa fa-whatsapp" style={{color: "white", fontSize:"20px", marginRight:"7px"}}></i><span style={{color:"white"}}>whatsapp</span></a></button>
+                <button className="bottom-btn hor-order"><a href="https://wa.me/+918884440963?text=I%20am%20intrested%20in%20Pavani%20Mirabilia%20Please%20share%20more%20details!"><i className="fa fa-whatsapp" style={{color: "white", fontSize:"20px", marginRight:"7px"}}></i><span style={{color:"white"}}>whatsapp</span></a></button>
             </div>
             
         </div>

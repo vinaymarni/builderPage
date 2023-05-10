@@ -16,8 +16,8 @@ const Enquire = ({ setEnquireBox, contant})=> {
     return(
         <div id="P" className="notification-con ver-order" onClick={(e)=>getCon(e)}>
             <div id="C" className="brochure-box flex-start-order" onClick={(e)=>getCon(e)}>
-                <h1 className="brochure-heading">{contant != undefined ? contant.heading:""}</h1>
-                <div className="hor-order">
+                <h1 className="brochure-heading">{contant != undefined ? contant.heading:""}<i id="mobile-cross-icon" className="fa fa-close" onClick={()=>setEnquireBox("none")}></i></h1>
+                <div className="hor-order" style={{width:"100%"}}>
                     <div className="ver-order icons-con">
                         <p className="icons-names" style={{fontWeight: "600", fontSize: "15px"}}>We Promise</p>
                         <img src="https://res.cloudinary.com/di01osmzz/image/upload/v1683623547/customer-service_nguepl.png" height={50} width={50} alt="" />
@@ -28,7 +28,6 @@ const Enquire = ({ setEnquireBox, contant})=> {
                         <span className="icons-names">Unmatched Price</span>
                     </div>
                     <div className="enquire-details-con">
-                        <i id="cross-icon" className="fa fa-close" style={{fontSize:"20px", left:"265px"}} onClick={()=>setEnquireBox("none")}></i>
                         <p className="icons-names">Register Here And Avail The <span style={{color:"blue"}}>Best Offers!!</span></p>
                         <input type="text" placeholder="Name" className="input-field brochure-field" />                
                         <PhoneInput 

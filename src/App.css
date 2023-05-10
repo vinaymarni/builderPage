@@ -51,6 +51,7 @@
 
 .mainbar-main-con{
   width: 100%;
+  margin-right: 320px;
 }
 
 .visit-btn{
@@ -79,7 +80,7 @@
   font-weight: 600;
   font-size: 15px;
   height: 30px;
-  margin-top: 10px;
+  margin-top: 20px;
   border-radius: 5px;
   padding-left: 15px;
   padding-right: 15px;
@@ -170,12 +171,14 @@
 }
 
 .more-details-content{
-  font-size:15px;
-  font-weight: 500;
+  font-size:17px;
+  font-weight: 600;
 }
 
 .ul-items{
   color:white;
+  font-size: 15px;
+  font-weight:500;
 }
 
 .main-heading{
@@ -201,15 +204,12 @@
   right: 0px;
 }
 
-.fixed-left{
-  margin-right: 320px;
-}
-
 .details-con{
   padding: 40px;
   width: 74vw;
-  border-top: 8px solid rgb(185, 183, 183);
-  border-right: 8px solid rgb(185, 183, 183);
+  border: 3px solid rgb(185, 183, 183);
+  border-bottom: none;
+
 }
 
 .about-sobha{
@@ -269,6 +269,7 @@
 
 .bhk-unit-content-box{
   border: 1px solid gray;
+  border-radius: 10px;
   width: 98%;
   padding: 15px;
 
@@ -354,6 +355,7 @@
   background-color: gray;
   width: 95%;
   margin-bottom: 10px;
+  margin-top: 10px;
   padding: 10px;
 }
 
@@ -558,7 +560,7 @@
 .mobile-nav-bar{
   display: none;
   height:60px;
-  width: 100%;
+  width: 100vw;
   background-color: rgb(232, 241, 238);
   padding-left: 10px;
   padding-right: 10px;
@@ -608,7 +610,7 @@
 
 .bottom-btns-con{
   display: none;
-  width:100%;
+  width:100vw;
 }
 
 .bottom-btn{
@@ -668,17 +670,70 @@
   margin:10px;
 }
 
+#mobile-cross-icon{
+  position: relative;
+  top: 0px;
+  left: 60px;
+  color: white;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+
+.logo-image{
+  height: 50px;
+  width: 50px;
+}
+
+.mobile-pre-regidtration{
+  display: none;
+  margin-bottom: 20px;
+  width: 100%;
+  margin-top: 0;
+  background-color:rgb(226, 223, 223);
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+
+.image-viewer{
+  background-color: black;
+  width: 100vw;
+}
+
+.zoom-img{
+  width: 70%;
+  height: 100vh;
+}
+
+.bookings-con{
+  background-color: rgb(64, 64, 169);
+  width: 100%;
+  font-size: 15px;
+  color: white;
+}
+
 
 @media only screen and (max-width: 500px) {
   .mainbar-main-con{
     align-items: center;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
+    margin-left: 1px;
+    margin-right: 0px;
+    box-sizing: content-box;
+    overflow: hidden;
+  }
+  .localities{
+    margin-right: 0;
+  }
+  
+  .logo-image{
+    height: 40px;
+    width: 35px;
   }
   .main-con{
     display: block;
-    width: 100vw;
-    margin: -22px;
+    margin: 0px;
   }
   .nav-bar {
     display: none;
@@ -686,32 +741,40 @@
   .mobile-nav-bar{
     display: flex;
   }
+  .mobile-pre-regidtration{
+    display: flex;
+}
   .sidebar-main-con{
+    width: 100%;
     display: none;
   }
   #property-images{
     width: 100vw;
     height: 300px;
+    margin: 0px;
   }
   .details-con{
     width: 100vw;
     padding-left: 20px;
     box-sizing: border-box;
     padding-top: 0;
+    margin: 0px;
     padding-right: 10px;
-    padding-left: 25px;
+    padding-left: 15px;
   }
   .main-heading{
     font-size:30px;
   }
   .more-details-box{
     position:static;
-    width: 100%;
-    height: 600px;
+    width: 100vw;
+    height: 520px;
     z-index: 0;
     margin-top: 0;
+    margin: 0px;
   }
   .more-detail-inner{
+    margin-top: 10px;
     width: 250px;
   }
   .bhk-unit-heading{
@@ -730,6 +793,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 0;
   }
   .table{
     margin-bottom: 20px;
@@ -761,18 +825,22 @@
   .master-plan{
     height:250px;
     width: 100%;
+    margin: 0;
   }
   .localities-box{
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
   }
   .map-box{
     height:200px;
     width: 100%;
+    margin: 0;
   }
   .VideoInput_video{
     height: 250px;
     width: 100%;
+    margin: 0;
   }
   .bottom-btns-con{
     display: flex;
@@ -788,14 +856,15 @@
     margin-top: 10px;
   }
   .images-con{
-    height: 60vh;
+    height: 100vh;
     width: 390px;
     padding-bottom: 100px;
   }
+
   #photos-cross-icon{
     position: absolute;
-    top: 170px;
-    right: 0px;
+    top: 50px;
+    right: 30px;
     color: red;
     font-size: 30px;
     z-index: 2;
@@ -805,6 +874,7 @@
     padding-top: 5px;
     color: gray;
     width: 100%;
+    margin: 0;
   }
   .bhk-unit-span{
     font-size:14px
@@ -884,7 +954,7 @@
     margin: 0px;
   }
   .localities-con{
-    width: 80%;
+    width: 90%;
     align-items: flex-start;
     margin-bottom: 10px;
   }
@@ -903,20 +973,31 @@
   }
   .enquire-details-con{
     display: flex;
-    width: 400px;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   .download-btn{
     margin-left: 0px;
-
+  }
+  #mobile-cross-icon{
+    position: relative;
+    top: 0px;
+    left: 10%;
+    font-size: 25px;
+  }
+  .amenities-heading{
+    font-size:20px;
+  }
+  .more-details-heading{
+    font-size:24px;
+    font-weight: bold;
+  }
+  .input-field{
+    width: 80%;
   }
 
 }
 
-.logo-image{
-  height: 50px;
-  width: 50px;
-}
 

@@ -16,7 +16,7 @@ function App() {
   };
 
   return (
-    <div className="main-con hor-order">
+    <div className="hor-order">
         <MainPage onPhotos={onPhotos} />
         <SideBar />
 

@@ -17,10 +17,17 @@ const Photos = ({setPhotosBox}) => {
             setLoading(false);
         };
     };
+
+    const getCon = (e) => {
+        if (e.target.id === "P"){
+            setPhotosBox("none")
+        };
+    };
+
     return(
-        <div className="notification-con gallery-mobile-con ver-order">
+        <div id="P" className="notification-con gallery-mobile-con ver-order" onClick={(e)=>getCon(e)}>
             <i id="photos-cross-icon" className="fa fa-close" onClick={()=>setPhotosBox("none")}></i>     
-            <div className="main-photos-con">             
+            <div id="C" className="main-photos-con" onClick={(e)=>getCon(e)}>             
                 <Loader size="md" content="Loading..."  style={{display: loading ? "block" : "none", margin: "10%"}}/>      
                 <div className="images-con ver-order" style={{display: loading ? "none" : "block"}}>
                         <Carousel  showArrows={true}>   
